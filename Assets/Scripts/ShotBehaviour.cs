@@ -43,4 +43,20 @@ public class ShotBehaviour : MonoBehaviour
         }
     }
 
+    public void PlayerShotChanges()
+    {
+        gameObject.tag = "PlayerShot";
+        GetComponent<SpriteRenderer>().color = Color.green;
+        direction = new Vector3(1f, 0f, 0f);
+        velocity = 10;
+    }
+
+    public void EnemyShotChanges()
+    {
+        gameObject.tag = "EnemyShot";
+        GetComponent<SpriteRenderer>().color = Color.red;
+        direction = new Vector3(-1f, 0f, 0f);
+        velocity = 10;
+    }
+
 }

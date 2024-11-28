@@ -286,7 +286,7 @@ MonoBehaviour:
   kills: 0
   money: 0
   ssi: {fileID: 11400000, guid: b5fbb16533b7098418db08747cd2bb58, type: 2}
-  shotPrefab: {fileID: -8213617742678650150, guid: 1252d984478282f4fba7ebde751ec569, type: 3}
+  shotPrefab: {fileID: -8213617742678650150, guid: f1aca28f35bd10046828cf279b14e29c, type: 3}
   listAttaches:
   - {fileID: 3565014767137070717}
   explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}

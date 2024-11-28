@@ -15,10 +15,16 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private List<Sprite> listSprites;
 
+    [SerializeField] private GameObject waveUI;
     private System.Random rnd = new System.Random();
     private List<UpgradeCard> finalList = null;
     // Start is called before the first frame update
     void Start()
+    {
+        //ChooseCards();
+    }
+
+    private void OnEnable()
     {
         ChooseCards();
     }
@@ -70,7 +76,6 @@ public class Shop : MonoBehaviour
 
             slotsPrices[i].GetComponent<TMP_Text>().text = finalList[i].costPrice.ToString();
         }
-        
     }
 
     public void BuyCard(int x)
@@ -85,6 +90,15 @@ public class Shop : MonoBehaviour
 
             slotsButtons[x].GetComponent<Button>().interactable = false;
         }
+    }
+
+    public void NextButton()
+    {
+        GetComponent<Shop>().enabled = false;
+        gameObject.SetActive(false);
+        waveUI.SetActive(true);
+        GameManager.spaceship.GetComponent<PlayerBehaviour>().enabled = true;
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().enabled = true;
     }
 
     private void ChangeStatistics(Statistic y, int x, bool isUpgrade)

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Limit.cs" />
     <Compile Include="Assets\Scripts\UpgradeCard.cs" />
     <Compile Include="Assets\Scripts\EnemyInformation.cs" />
+    <Compile Include="Assets\Scripts\BossBehaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\SpaceParallax.cs" />
     <Compile Include="Assets\Scripts\ShotBehaviour.cs" />

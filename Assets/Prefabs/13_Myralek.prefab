@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyInfo: {fileID: 11400000, guid: e5271d670ac1b4d4d95be9e8240ba89a, type: 2}
   direction: {x: -1, y: 0, z: 0}
-  enemyShot: {fileID: -8213617742678650150, guid: 8e41a3e53d4a3d945b8a589b046b62c1, type: 3}
+  enemyShot: {fileID: -8213617742678650150, guid: f1aca28f35bd10046828cf279b14e29c, type: 3}
   explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}
 --- !u!82 &-7515349195880644486
 AudioSource:

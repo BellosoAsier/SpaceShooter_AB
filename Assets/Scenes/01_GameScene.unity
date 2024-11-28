@@ -516,8 +516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecods: 3
   numberOfLevels: 3
-  numberOfWaves: 5
-  numberOfEnemies: 10
+  numberOfWaves: 2
+  numberOfEnemies: 3
   enemiesGO:
   - {fileID: 8326918178256372502, guid: 4932b8c65893335469ab81cdc118fe0d, type: 3}
   - {fileID: 4309860129079178447, guid: 8f20c00b64ffddc46a1af5c15c71f3ab, type: 3}
@@ -526,6 +526,7 @@ MonoBehaviour:
   - {fileID: 754848838641283085, guid: 4fbce856547208640bad6b7d0ed37712, type: 3}
   - {fileID: 2514848331714047757, guid: 1cff1e0d0c3970d4e9bf63086751d6d6, type: 3}
   textWaves: {fileID: 695709931}
+  boss: {fileID: 1846682290}
 --- !u!4 &145705156
 Transform:
   m_ObjectHideFlags: 0
@@ -617,7 +618,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163846917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87c763c0c8b2c104596aa3dab1b30bb8, type: 3}
   m_Name: 
@@ -667,6 +668,7 @@ MonoBehaviour:
   - {fileID: 1825390815, guid: 703bb3dd8426fa54593d22a66f1db342, type: 3}
   - {fileID: 494308361, guid: 703bb3dd8426fa54593d22a66f1db342, type: 3}
   - {fileID: 21300000, guid: c2a38d4367eb5f84190da0dc69504997, type: 3}
+  waveUI: {fileID: 695709929}
 --- !u!1 &168312058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,7 +2760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &695709930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7131,7 +7133,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1801068368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 163846920}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: NextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1801068368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7308,6 +7322,103 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1846682290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846682293}
+  - component: {fileID: 1846682292}
+  - component: {fileID: 1846682291}
+  m_Layer: 0
+  m_Name: Boss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1846682291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846682290}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aed8edfa4e97e246a9784168a55df61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1846682292
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846682290}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 21300000, guid: 78538fc30e917fc4e892e80f72cf5e81, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5, y: 5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1846682293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846682290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.01, y: 0, z: 0}
+  m_LocalScale: {x: 1.548, y: 1.548, z: 1.548}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850456687
 GameObject:
   m_ObjectHideFlags: 0
@@ -7348,6 +7459,21 @@ MonoBehaviour:
   waveIndUI: {fileID: 695709929}
   menuUI: {fileID: 2132901410}
   statisticsUI: {fileID: 309604424}
+  shopUI: {fileID: 163846917}
+  background: {fileID: 1773695}
+  listWorldSprites:
+  - name: Blue World
+    back: {fileID: 21300000, guid: 7880214751879a14d880160acb7db656, type: 3}
+    part1: {fileID: 21300000, guid: 508623437b61be84184d949b6888c11f, type: 3}
+    part2: {fileID: 21300000, guid: 9eb0e4b30b95cfd44b80cf5a65f08ffa, type: 3}
+  - name: Red World
+    back: {fileID: 21300000, guid: 7b957ed6240e2ff4994298ac23434bc0, type: 3}
+    part1: {fileID: 21300000, guid: b1ec001a84781424da5e7045c59c71f6, type: 3}
+    part2: {fileID: 21300000, guid: 9eb0e4b30b95cfd44b80cf5a65f08ffa, type: 3}
+  - name: Boss World
+    back: {fileID: 21300000, guid: c00b546cb38f1234eb6de22db7050b3a, type: 3}
+    part1: {fileID: 21300000, guid: b1ec001a84781424da5e7045c59c71f6, type: 3}
+    part2: {fileID: 21300000, guid: 508623437b61be84184d949b6888c11f, type: 3}
 --- !u!4 &1850456689
 Transform:
   m_ObjectHideFlags: 0
@@ -8820,6 +8946,7 @@ SceneRoots:
   - {fileID: 1071627060}
   - {fileID: 1773696}
   - {fileID: 1231324325}
+  - {fileID: 1846682293}
   - {fileID: 145705156}
   - {fileID: 1850456689}
   - {fileID: 1185135618}

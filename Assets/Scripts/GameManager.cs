@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject waveIndUI;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject statisticsUI;
+    [SerializeField] private GameObject shopUI;
     [SerializeField] private List<List<int>> listDifficulty;
+
+    [Header("Background")]
+    [SerializeField] private GameObject background;
+
+    [Serializable]
+    public class WorldSprites
+    {
+        public string name;
+        public Sprite back;
+        public Sprite part1;
+        public Sprite part2;
+    }
+    [SerializeField] private List<WorldSprites> listWorldSprites;
 
     private bool isPaused = false;
     private bool isStatisticScreen = false;
@@ -87,6 +102,25 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync("00_InitiaScene");
+        SceneManager.LoadSceneAsync("00_InitialScene");
+    }
+
+    public void ToggleShop()
+    {
+        waveIndUI.SetActive(false);
+        shopUI.SetActive(true);
+        shopUI.GetComponent<Shop>().enabled = true;
+    }
+
+    public void ChangeWorldSprites(int index)
+    {
+        background.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = listWorldSprites[index].back;
+        background.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = listWorldSprites[index].back;
+
+        background.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = listWorldSprites[index].part1;
+        background.transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().sprite = listWorldSprites[index].part1;
+
+        background.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = listWorldSprites[index].part2;
+        background.transform.GetChild(2).GetChild(0).GetComponent<SpriteRenderer>().sprite = listWorldSprites[index].part2;
     }
 }

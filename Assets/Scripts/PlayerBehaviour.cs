@@ -117,6 +117,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 ShotBehaviour x = pool.Get();
                 x.transform.position = go.transform.position;
+                x.PlayerShotChanges();
                 x.GetComponent<ShotBehaviour>().SetDamage(attack);
                 x.gameObject.SetActive(true);
             }

@@ -25,6 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         pool = new ObjectPool<ShotBehaviour>(CreateShot, null, ReleaseShot, DestroyShot);
     }
+
     private void DestroyShot(ShotBehaviour behaviour)
     {
         Destroy(behaviour);
@@ -68,11 +69,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator SpawnEnemyShots(float delaySeconds)
     {
-        for (int i = 0; i<1; i++)
+        for (int i = 0; i<4; i++)
         {
             GetComponent<AudioSource>().Play();
             ShotBehaviour x = pool.Get();
             x.transform.position = transform.position;
+            x.EnemyShotChanges();
             x.SetDamage(attack);
             x.gameObject.SetActive(true);
             yield return new WaitForSeconds(delaySeconds);
