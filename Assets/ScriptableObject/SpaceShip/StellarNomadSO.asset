@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: StellarNomadSO
   m_EditorClassIdentifier: 
   nameShip: Stellar Nomad
-  health: 100
-  velocity: 5
-  shields: 3
+  health: 80
+  velocity: 3
+  shields: 4
   armor: 2
-  attack: 2
-  attSpeed: 0.5
+  attack: 3
+  attSpeed: 0.3
   kills: 0
   money: 0
   worldPuntuation: 000000000000000000000000

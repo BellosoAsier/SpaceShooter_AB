@@ -26,6 +26,10 @@ public class Shop : MonoBehaviour
 
     private void OnEnable()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            slotsButtons[i].GetComponent<Button>().interactable = true;
+        }
         ChooseCards();
     }
 
@@ -146,9 +150,9 @@ public class Shop : MonoBehaviour
                 }
                 else
                 {
-                    if ((GameManager.spaceship.GetComponent<PlayerBehaviour>().attack + finalList[x].downgradeValue) <= 0)
+                    if ((GameManager.spaceship.GetComponent<PlayerBehaviour>().attack + finalList[x].downgradeValue) <= 1)
                     {
-                        GameManager.spaceship.GetComponent<PlayerBehaviour>().attack = 0.1f;
+                        GameManager.spaceship.GetComponent<PlayerBehaviour>().attack = 1f;
                     }
                     else
                     {
@@ -204,6 +208,24 @@ public class Shop : MonoBehaviour
                     else
                     {
                         GameManager.spaceship.GetComponent<PlayerBehaviour>().velocity += finalList[x].downgradeValue;
+                    }
+                }
+                break;
+
+            case Statistic.Enemies:
+                if (isUpgrade)
+                {
+                    GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().SetNumberOfEnemies((int)(GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().GetNumberOfEnemies() + finalList[x].upgradeValue));
+                }
+                else
+                {
+                    if ((GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().GetNumberOfEnemies() + finalList[x].downgradeValue) <= 1)
+                    {
+                        GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().SetNumberOfEnemies(1);
+                    }
+                    else
+                    {
+                        GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().SetNumberOfEnemies((int)(GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().GetNumberOfEnemies() + finalList[x].downgradeValue));
                     }
                 }
                 break;

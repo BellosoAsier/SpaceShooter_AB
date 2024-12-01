@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: EclipseRunnerSO
   m_EditorClassIdentifier: 
   nameShip: Eclipse Runner
-  health: 100
-  velocity: 5
-  shields: 3
-  armor: 2
-  attack: 2
-  attSpeed: 0.4
+  health: 90
+  velocity: 7
+  shields: 6
+  armor: 1.5
+  attack: 7
+  attSpeed: 0.5
   kills: 0
   money: 0
   worldPuntuation: 000000000000000000000000

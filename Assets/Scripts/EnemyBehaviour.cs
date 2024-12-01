@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.UI;
 using static Unity.Burst.Intrinsics.X86;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    private float maxHealthValue;
     private float healthValue;
     private float velocity;
     private float armor;
@@ -18,6 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private Vector3 direction;
     [SerializeField] private ShotBehaviour enemyShot;
     [SerializeField] private GameObject explosion;
+    [SerializeField] private Image bar;
 
     private ObjectPool<ShotBehaviour> pool;
 
@@ -50,6 +53,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxHealthValue = enemyInfo.health;
         gameObject.name = enemyInfo.nameShip;
         healthValue = enemyInfo.health;
         velocity = enemyInfo.velocity;
@@ -65,6 +69,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         transform.Translate(direction * velocity * Time.deltaTime);
+
+        bar.fillAmount = healthValue / maxHealthValue;
     }
 
     IEnumerator SpawnEnemyShots(float delaySeconds)

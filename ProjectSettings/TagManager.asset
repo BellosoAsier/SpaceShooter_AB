@@ -8,6 +8,9 @@ TagManager:
   - PlayerShot
   - EnemyShot
   - Limit
+  - Shield
+  - Boss
+  - BossBeam
   layers:
   - Default
   - TransparentFX

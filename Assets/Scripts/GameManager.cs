@@ -105,6 +105,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync("00_InitialScene");
     }
 
+    public IEnumerator LoseGame()
+    {
+        yield return new WaitForSeconds(2f);
+        ExitGame();
+    }
+
     public void ToggleShop()
     {
         waveIndUI.SetActive(false);

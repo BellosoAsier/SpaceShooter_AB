@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Pool;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    private float maxHealthValue;
     public float healthValue;
     public float velocity;
     public float shotRate;
@@ -21,9 +25,14 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private ShotBehaviour shotPrefab;
     [SerializeField] private List<GameObject> listAttaches;
     [SerializeField] private GameObject explosion;
-    private float timer;
+    [SerializeField] private GameObject shield;
+    private Image healthContainer;
+    private TMP_Text shieldContainer;
 
+    private float timer;
     private ObjectPool<ShotBehaviour> pool;
+    private Coroutine myCoroutine;
+
 
     //[SerializeField] private GameObject spaceShipFire;
     private void Awake()
@@ -56,6 +65,9 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthContainer = GameObject.Find("Remaining").GetComponent<Image>();
+        shieldContainer = GameObject.Find("NumberShields").GetComponent<TMP_Text>();
+        maxHealthValue = ssi.health;
         gameObject.name = ssi.nameShip;
         healthValue = ssi.health;
         velocity = ssi.velocity;
@@ -72,6 +84,38 @@ public class PlayerBehaviour : MonoBehaviour
         PlayerMovement();
         ClampMovement();
         PlayerShot();
+
+        if (Input.GetKeyDown(KeyCode.Q) && myCoroutine==null && shields>0)
+        {
+            myCoroutine = StartCoroutine(ActivateShield(2f));
+        }
+
+        healthContainer.fillAmount = healthValue / maxHealthValue;
+        shieldContainer.text = shields.ToString();
+
+        if (healthValue < 0)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            GameObject.Find("GameManager").GetComponent<GameManager>().StartCoroutine(GameObject.Find("GameManager").GetComponent<GameManager>().LoseGame());
+        }
+    }
+    IEnumerator ReturnToMainScreen()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        gameObject.GetComponent<PlayerBehaviour>().enabled = false;
+        yield return new WaitForSeconds(2f);
+    }
+
+    IEnumerator ActivateShield(float sec)
+    {
+        shields--;
+        shield.SetActive(true);
+        transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(sec);
+        shield.SetActive(false);
+        transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = true;
+        myCoroutine = null;
     }
 
     private void PlayerMovement()
@@ -127,7 +171,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("EnemyShot"))
+        if (other.gameObject.CompareTag("EnemyShot") && myCoroutine == null)
         {
             healthValue -= other.gameObject.GetComponent<ShotBehaviour>().GetDamage() / armor;
             Debug.Log(healthValue);
@@ -135,17 +179,16 @@ public class PlayerBehaviour : MonoBehaviour
             //Destroy(other.gameObject);
         }
 
-        else if(other.gameObject.CompareTag("Enemy")) 
+        else if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("hhh");
             healthValue -= other.transform.parent.gameObject.GetComponent<EnemyBehaviour>().GetDamage() / armor;
         }
 
-        if (healthValue<0)
+        else if (other.gameObject.CompareTag("BossBeam"))
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            healthValue -= (other.transform.parent.parent.GetComponent<BossBehaviour>().GetDamage() / armor);
         }
+
     }
 
     public float GetDamage()
@@ -156,5 +199,14 @@ public class PlayerBehaviour : MonoBehaviour
     public SpaceShipInformation GetSpaceShipInformation()
     {
         return ssi;
+    }
+
+    public void StopCoroutineShield()
+    {
+        if (myCoroutine!=null)
+        {
+            StopCoroutine(myCoroutine); // Detiene la corutina
+            myCoroutine = null;
+        }
     }
 }

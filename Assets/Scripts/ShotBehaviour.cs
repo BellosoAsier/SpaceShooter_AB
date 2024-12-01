@@ -41,6 +41,27 @@ public class ShotBehaviour : MonoBehaviour
         {
             myPool.Release(this);
         }
+        else if (other.gameObject.CompareTag("Shield"))
+        {
+            if (tag == "PlayerShot")
+            {
+                
+            }
+            else
+            {
+                myPool.Release(this);
+                other.gameObject.SetActive(false);
+                other.gameObject.transform.parent.GetComponent<PlayerBehaviour>().StopCoroutineShield();
+            }
+            
+        }
+        else if (other.gameObject.CompareTag("Boss"))
+        {
+            myPool.Release(this);
+            Debug.Log(other);
+            other.gameObject.GetComponent<BossBehaviour>().health -= GetDamage() / 2;
+        }
+        
     }
 
     public void PlayerShotChanges()

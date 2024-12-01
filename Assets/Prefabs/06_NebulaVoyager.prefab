@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1101849803795586150}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Player
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,12 +271,13 @@ MonoBehaviour:
   armor: 0
   attack: 0
   kills: 0
-  money: 0
+  money: 60
   ssi: {fileID: 11400000, guid: 3641596c5bb63ac40be9ef41cdb9d63a, type: 2}
   shotPrefab: {fileID: -8213617742678650150, guid: f1aca28f35bd10046828cf279b14e29c, type: 3}
   listAttaches:
   - {fileID: 8627821654581117040}
   explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}
+  shield: {fileID: 2740877630043676534}
 --- !u!50 &6043802713047313286
 Rigidbody2D:
   serializedVersion: 4

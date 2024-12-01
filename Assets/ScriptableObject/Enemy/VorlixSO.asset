@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameShip: Vorlix
   health: 10
-  velocity: 4
+  velocity: 5
   armor: 1
-  attack: 20
-  attSpeed: 0.5
-  moneyReward: 60
+  attack: 30
+  attSpeed: 0.2
+  moneyReward: 75

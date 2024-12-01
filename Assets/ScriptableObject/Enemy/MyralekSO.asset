@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameShip: Myralek
   health: 10
-  velocity: 4
+  velocity: 5
   armor: 1
-  attack: 20
+  attack: 15
   attSpeed: 0.5
-  moneyReward: 40
+  moneyReward: 20

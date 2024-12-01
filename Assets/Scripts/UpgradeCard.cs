@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Rarity { Common, Rare, Epic, Legendary}
-public enum Statistic { Health, Attack, Shotrate, Shields, Velocity, Armor }
+public enum Statistic { Health, Attack, Shotrate, Shields, Velocity, Armor, Enemies }
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/CreateCardSO", order = 3)]
 public class UpgradeCard : ScriptableObject

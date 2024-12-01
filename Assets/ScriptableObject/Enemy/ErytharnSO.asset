@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ErytharnSO
   m_EditorClassIdentifier: 
   nameShip: Erytharn
-  health: 10
+  health: 15
   velocity: 4
-  armor: 1
-  attack: 20
+  armor: 2
+  attack: 10
   attSpeed: 0.3
-  moneyReward: 30
+  moneyReward: 60

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: QuorvakSO
   m_EditorClassIdentifier: 
   nameShip: Quorvak
-  health: 10
-  velocity: 5
-  armor: 1
+  health: 20
+  velocity: 4
+  armor: 2
   attack: 20
-  attSpeed: 0.5
+  attSpeed: 0.6
   moneyReward: 50

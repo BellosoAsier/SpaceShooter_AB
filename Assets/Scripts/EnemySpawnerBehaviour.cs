@@ -25,7 +25,7 @@ public class EnemySpawnerBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-       StartCoroutine(SpawnEnemiesPerWave(2f,5f));
+       StartCoroutine(SpawnEnemiesPerWave(2f,3.5f));
     }
 
     // Update is called once per frame
@@ -70,6 +70,15 @@ public class EnemySpawnerBehaviour : MonoBehaviour
         
     }
 
+    public void SetNumberOfEnemies(int x)
+    {
+        numberOfEnemies = x;
+    }
+
+    public int GetNumberOfEnemies()
+    {
+        return numberOfEnemies;
+    }
     IEnumerator SpawnEnemies(float secLvl, float secWv, float secEn, int numberOfLevels, int numberOfWaves, int numberOfEnemies)
     {
         for (int i = 0; i < numberOfLevels; i++)

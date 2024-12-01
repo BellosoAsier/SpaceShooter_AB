@@ -22,6 +22,7 @@ public class StatisticScreen : MonoBehaviour
         listStatistic[7].GetComponent<TMP_Text>().text = minutes + " min " + seconds + " seg";
 
         listStatistic[8].GetComponent<TMP_Text>().text = GameManager.spaceship.GetComponent<PlayerBehaviour>().armor.ToString();
+        listStatistic[9].GetComponent<TMP_Text>().text = GameObject.Find("EnemySpawner").GetComponent<EnemySpawnerBehaviour>().GetNumberOfEnemies().ToString();
     }
 }
 

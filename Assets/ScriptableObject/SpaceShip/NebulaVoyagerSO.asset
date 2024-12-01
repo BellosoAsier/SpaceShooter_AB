@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameShip: Nebula Voyager
   health: 100
-  velocity: 4
+  velocity: 6
   shields: 3
-  armor: 2
-  attack: 2
-  attSpeed: 0.5
+  armor: 3
+  attack: 6
+  attSpeed: 0.4
   kills: 0
   money: 0
   worldPuntuation: 000000000000000000000000

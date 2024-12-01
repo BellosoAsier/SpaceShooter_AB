@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Card 11
   m_EditorClassIdentifier: 
   rarity: 1
-  costPrice: 7
+  costPrice: 80
   statisticU: 4
-  upgradeValue: 10
+  upgradeValue: 2
   statisticD: 3
   downgradeValue: -2
