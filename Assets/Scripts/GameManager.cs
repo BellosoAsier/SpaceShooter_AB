@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject waveIndUI;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject statisticsUI;
+    [SerializeField] private GameObject controlsUI;
     [SerializeField] private GameObject shopUI;
     [SerializeField] private List<List<int>> listDifficulty;
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isStatisticScreen = false;
+    private bool isControlsScreen = false;
     public static GameObject spaceship;
     public static float timer;
 
@@ -53,6 +55,10 @@ public class GameManager : MonoBehaviour
         if (isStatisticScreen)
         {
             StatisticReturnGame();
+        }
+        else if (isControlsScreen)
+        {
+            ControlsReturnGame();
         }
         else
         {
@@ -91,10 +97,25 @@ public class GameManager : MonoBehaviour
         menuUI.SetActive(false);
     }
 
+    public void ControlsGame()
+    {
+        isControlsScreen = true;
+        controlsUI.SetActive(true);
+        waveIndUI.SetActive(false);
+        menuUI.SetActive(false);
+    }
+
     public void StatisticReturnGame()
     {
         isStatisticScreen = false;
         statisticsUI.SetActive(false);
+        waveIndUI.SetActive(true);
+        menuUI.SetActive(true);
+    }
+    public void ControlsReturnGame()
+    {
+        isControlsScreen = false;
+        controlsUI.SetActive(false);
         waveIndUI.SetActive(true);
         menuUI.SetActive(true);
     }

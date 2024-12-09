@@ -2,6 +2,4 @@
 |QUE HACERES|
 -------------
 - Balanceo del juego
-- UI - Enmeigos vida
-- UI - Vida Boss
 -Add MAx HElatth value to Player

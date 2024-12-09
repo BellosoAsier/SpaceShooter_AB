@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\ShotBehaviour.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\ControlsWindow.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnerBehaviour.cs" />
     <Compile Include="Assets\Scripts\SpaceShipInformation.cs" />
   </ItemGroup>

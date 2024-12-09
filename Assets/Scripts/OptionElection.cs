@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class OptionElection : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class OptionElection : MonoBehaviour
 {
     private TMP_Text tmp;
-    [SerializeField] private Color color;
     [SerializeField] private List<GameObject> listGOToDesactivate;
     [SerializeField] private List<GameObject> listGOToActivate;
 
@@ -23,18 +22,7 @@ public class OptionElection : MonoBehaviour, IPointerClickHandler, IPointerEnter
         
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-
-        tmp.color = color;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        tmp.color = Color.white;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
+    public void Click()
     {
         if (gameObject.name.Equals("Start"))
         {
@@ -47,7 +35,6 @@ public class OptionElection : MonoBehaviour, IPointerClickHandler, IPointerEnter
             {
                 go.SetActive(true);
             }
-            tmp.color = Color.white;
         }
         else if (gameObject.name.Equals("Play"))
         {
@@ -58,6 +45,18 @@ public class OptionElection : MonoBehaviour, IPointerClickHandler, IPointerEnter
         else if (gameObject.name.Equals("Exit"))
         {
             Application.Quit();
+        }
+        else if (gameObject.name.Equals("Controls"))
+        {
+            foreach (GameObject go in listGOToDesactivate)
+            {
+                go.SetActive(false);
+            }
+
+            foreach (GameObject go in listGOToActivate)
+            {
+                go.SetActive(true);
+            }
         }
     }
 }
