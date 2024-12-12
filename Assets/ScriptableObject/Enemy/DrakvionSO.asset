@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DrakvionSO
   m_EditorClassIdentifier: 
   nameShip: Drakvion
-  health: 10
+  health: 5
   velocity: 5
   armor: 1
   attack: 15

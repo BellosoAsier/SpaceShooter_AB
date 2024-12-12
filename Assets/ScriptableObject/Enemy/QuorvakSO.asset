@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuorvakSO
   m_EditorClassIdentifier: 
   nameShip: Quorvak
-  health: 20
+  health: 12
   velocity: 4
   armor: 2
   attack: 20
