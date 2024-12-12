@@ -289,7 +289,7 @@ MonoBehaviour:
   shotPrefab: {fileID: -8213617742678650150, guid: f1aca28f35bd10046828cf279b14e29c, type: 3}
   listAttaches:
   - {fileID: 3565014767137070717}
-  explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}
+  explosion: {fileID: 7183352383780706950, guid: c2664f2eff2d9db41bbee807083cf5ee, type: 3}
   shield: {fileID: 3764738251542998086}
 --- !u!50 &390871722444495317
 Rigidbody2D:

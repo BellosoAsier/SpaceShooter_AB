@@ -182,7 +182,7 @@ MonoBehaviour:
   - {fileID: 3963578383597544332}
   - {fileID: 5545031890015391985}
   - {fileID: 5403408175385006509}
-  explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}
+  explosion: {fileID: 7183352383780706950, guid: c2664f2eff2d9db41bbee807083cf5ee, type: 3}
   shield: {fileID: 5193017356442844519}
 --- !u!50 &387664310279398081
 Rigidbody2D:

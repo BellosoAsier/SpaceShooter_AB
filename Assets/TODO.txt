@@ -1,5 +1,4 @@
 -------------
-|QUE HACERES|
+|  DEBERES  |
 -------------
-- Balanceo del juego
--Add MAx HElatth value to Player
+

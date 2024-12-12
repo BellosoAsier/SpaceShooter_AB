@@ -42,10 +42,10 @@ public class OptionElection : MonoBehaviour
             PlayerPrefs.SetInt("ShipCode", ind); // Guardo un dato persistente "ShipCode" en el Registro de Windows.
             SceneManager.LoadSceneAsync("01_GameScene");
         }
-        else if (gameObject.name.Equals("Exit"))
-        {
-            Application.Quit();
-        }
+        //else if (gameObject.name.Equals("Exit"))
+        //{
+        //    Application.Quit();
+        //}
         else if (gameObject.name.Equals("Controls"))
         {
             foreach (GameObject go in listGOToDesactivate)

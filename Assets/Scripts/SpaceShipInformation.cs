@@ -14,5 +14,4 @@ public class SpaceShipInformation : ScriptableObject
     [SerializeField] public float attSpeed;
     [SerializeField] public int kills;
     [SerializeField] public int money;
-    [SerializeField] public List<int> worldPuntuation;
 }

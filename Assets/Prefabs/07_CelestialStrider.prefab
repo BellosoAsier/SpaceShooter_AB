@@ -63,7 +63,7 @@ MonoBehaviour:
   listAttaches:
   - {fileID: 3041392680845584623}
   - {fileID: 6227387268926031048}
-  explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}
+  explosion: {fileID: 7183352383780706950, guid: c2664f2eff2d9db41bbee807083cf5ee, type: 3}
   shield: {fileID: 9127573383918874180}
 --- !u!50 &3620352447257609283
 Rigidbody2D:

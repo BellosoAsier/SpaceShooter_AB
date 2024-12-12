@@ -642,7 +642,7 @@ MonoBehaviour:
   enemyInfo: {fileID: 11400000, guid: d45f0548adee85b4a9ab5e5618cf440e, type: 2}
   direction: {x: -1, y: 0, z: 0}
   enemyShot: {fileID: -8213617742678650150, guid: f1aca28f35bd10046828cf279b14e29c, type: 3}
-  explosion: {fileID: 9155933791254990657, guid: 82a6f549826ec75458e0085b23406f1c, type: 3}
+  explosion: {fileID: 7183352383780706950, guid: a40640dd7de3b48469991717106a352f, type: 3}
   bar: {fileID: 3540317663734606770}
 --- !u!82 &-4015230665445237862
 AudioSource:

@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossBehaviour : MonoBehaviour
 {
     private float maxhealth;
+    private string fullText = "You Win...";
+    private string currentText = "";
     [SerializeField] public float health;
     [SerializeField] private float damage;
     private GameObject attack1;
@@ -14,23 +18,25 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private AudioClip laserBeamSound;
     [SerializeField] private AudioClip attackIndicatorSound;
     [SerializeField] private Image healthContainer;
-
+    [SerializeField] private TextMeshProUGUI textMeshPro;
+    private bool onlyOnce = true;
+    private Coroutine attackCoroutine;
     private void OnEnable()
     {
         maxhealth = health;
         attack1 = transform.GetChild(0).gameObject;
         attack2 = transform.GetChild(1).gameObject;
-        StartCoroutine(BossAttack());
+        attackCoroutine = StartCoroutine(BossAttack());
     }
 
     private void Update()
     {
         healthContainer.fillAmount = health / maxhealth;
 
-        if (health <=0)
+        if (health <=0 && onlyOnce)
         {
-            Debug.Log("WIN");
-            Destroy(gameObject);
+            StopCoroutine(attackCoroutine);
+            StartCoroutine(TypeText());
         }
     }
 
@@ -73,6 +79,20 @@ public class BossBehaviour : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    IEnumerator TypeText()
+    {
+        onlyOnce = false;
+        textMeshPro.gameObject.SetActive(true);
+        foreach (char letter in fullText)
+        {
+            currentText += letter; // Añadir una letra al texto
+            textMeshPro.text = currentText; // Mostrar el texto en la UI
+            yield return new WaitForSeconds(0.3f); // Esperar un poco antes de agregar la siguiente letra
+        }
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadSceneAsync("00_InitialScene");
     }
 
     public float GetDamage()
