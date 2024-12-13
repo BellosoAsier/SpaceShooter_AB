@@ -15,6 +15,6 @@ MonoBehaviour:
   rarity: 3
   costPrice: 200
   statisticU: 2
-  upgradeValue: -0.25
+  upgradeValue: -0.15
   statisticD: 0
   downgradeValue: -15

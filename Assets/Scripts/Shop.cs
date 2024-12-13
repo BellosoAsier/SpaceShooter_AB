@@ -112,17 +112,17 @@ public class Shop : MonoBehaviour
             case Statistic.Health:
                 if (isUpgrade)
                 {
-                    GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue += (int)finalList[x].upgradeValue;
+                    GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue += finalList[x].upgradeValue;
                 }
                 else
                 {
-                    if ((GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue + (int)finalList[x].downgradeValue)<= 0)
+                    if ((GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue + finalList[x].downgradeValue)<= 0)
                     {
                         GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue = 1;
                     }
                     else
                     {
-                        GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue += (int)finalList[x].downgradeValue;
+                        GameManager.spaceship.GetComponent<PlayerBehaviour>().healthValue += finalList[x].downgradeValue;
                     }
                 }
                 break;
@@ -180,13 +180,13 @@ public class Shop : MonoBehaviour
             case Statistic.Shotrate:
                 if (isUpgrade)
                 {
-                    if ((GameManager.spaceship.GetComponent<PlayerBehaviour>().shotRate + finalList[x].downgradeValue) <= 0.1f)
+                    if ((GameManager.spaceship.GetComponent<PlayerBehaviour>().shotRate + finalList[x].upgradeValue) <= 0.1f)
                     {
                         GameManager.spaceship.GetComponent<PlayerBehaviour>().shotRate = 0.1f;
                     }
                     else
                     {
-                        GameManager.spaceship.GetComponent<PlayerBehaviour>().shotRate += finalList[x].downgradeValue;
+                        GameManager.spaceship.GetComponent<PlayerBehaviour>().shotRate += finalList[x].upgradeValue;
                     }
                 }
                 else

@@ -93,7 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
         healthContainer.fillAmount = healthValue / maxHealthValue;
         shieldContainer.text = shields.ToString();
 
-        if (healthValue < 0)
+        if (healthValue <= 0)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -207,6 +207,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             StopCoroutine(myCoroutine); // Detiene la corutina
             myCoroutine = null;
+            transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = true;
         }
     }
 }

@@ -18,4 +18,4 @@ MonoBehaviour:
   armor: 1
   attack: 15
   attSpeed: 0.5
-  moneyReward: 20
+  moneyReward: 10
